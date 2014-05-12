@@ -1,0 +1,18 @@
+<script>
+
+	var myapp = new angular.module("myapp", ["ngResource"]);
+	myapp.controller("MainCtl", ["$scope", "$resource", function($scope, $resource) {
+
+		var Book = $resource("/books/:id", {id: '@id'}, {});
+		$scope.selected = null;
+		$scope.list = function(idx) {
+			Book.query(function(data) {
+				$scope.books = data;
+				if (idx != undefined) {
+					$scope.selected = $scope.books[idx];
+					$scope.selected.idx
+				}
+			})
+		}
+	}])
+</script>
