@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"labix.org/v2/mgo"
+)
 
 func main() {
 
